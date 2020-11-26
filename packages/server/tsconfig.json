@@ -1,8 +1,18 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./dist",                        
-    "rootDir": "./src",  
-  },
-  "include": ["./src/**/*"]
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"strictPropertyInitialization": false,
+		"allowJs": true,
+		"paths": {
+			"@modules/*": ["modules/*"],
+			"@config/*": ["config/*"],
+			"@shared/*": ["shared/*"]
+		}
+	},
+	"include": ["./src/**/*"]
 }
