@@ -28,6 +28,9 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/prop-types': 'off',
     'no-use-before-define': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    'no-useless-constructor': 'off',
+    'camelcase': 'off'
   },
   settings: {
     'import/resolver': {

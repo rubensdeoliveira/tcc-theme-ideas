@@ -17,7 +17,7 @@ class SendForgotPasswordEmailService {
     private usersRepository: IUsersRepository,
 
     @inject('MailProvider')
-    private mailProvieder: IMailProvider,
+    private mailProvider: IMailProvider,
 
     @inject('UserTokensRepository')
     private userTokensRepository: IUserTokensRepository
@@ -39,12 +39,12 @@ class SendForgotPasswordEmailService {
       'forgot_password.hbs'
     )
 
-    await this.mailProvieder.sendMail({
+    await this.mailProvider.sendMail({
       to: {
         name: user.name,
         email: user.email
       },
-      subject: '[Equipe x] Recuperação de senha',
+      subject: '[Equipe TCC Theme Ideas] Recuperação de senha',
       templateData: {
         file: forgotPasswordTemplate,
         variables: {
