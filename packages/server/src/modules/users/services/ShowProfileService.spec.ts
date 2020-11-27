@@ -15,7 +15,8 @@ describe('UpdateUserAvatar', () => {
 
   it('should be able to show user profile', async () => {
     const user = await fakeUsersRepository.create({
-      name: 'Ada Lovelace',
+      name: 'Ada',
+      surname: 'Lovelace',
       email: 'ada@gmail.com',
       password: '12345678'
     })
@@ -24,7 +25,8 @@ describe('UpdateUserAvatar', () => {
       user_id: user.id
     })
 
-    expect(profile.name).toBe('Ada Lovelace')
+    expect(profile.name).toBe('Ada')
+    expect(profile.surname).toBe('Lovelace')
     expect(profile.email).toBe('ada@gmail.com')
   })
 

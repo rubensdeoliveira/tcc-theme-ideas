@@ -10,6 +10,7 @@ import User from '../infra/typeorm/entities/User'
 interface IRequest {
   user_id: string
   name: string
+  surname: string
   email: string
   old_password?: string
   password?: string
@@ -28,6 +29,7 @@ class UpdateProfileService {
   public async execute({
     user_id,
     name,
+    surname,
     email,
     old_password,
     password
@@ -45,6 +47,7 @@ class UpdateProfileService {
     }
 
     user.name = name
+    user.surname = surname
     user.email = email
 
     if (password && !old_password) {

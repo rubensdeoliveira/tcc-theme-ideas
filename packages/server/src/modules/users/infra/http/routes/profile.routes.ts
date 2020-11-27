@@ -16,6 +16,7 @@ profileRouter.put(
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),
+      surname: Joi.string().required(),
       email: Joi.string().email().required(),
       old_password: Joi.string(),
       password: Joi.string(),

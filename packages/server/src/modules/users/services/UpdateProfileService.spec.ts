@@ -20,18 +20,21 @@ describe('UpdateProfile', () => {
 
   it('should be able to update user profile', async () => {
     const user = await fakeUsersRepository.create({
-      name: 'Ada Lovelace',
+      name: 'Ada',
+      surname: 'Lovelace',
       email: 'ada@gmail.com',
       password: '12345678'
     })
 
     const updatedUser = await updateProfile.execute({
       user_id: user.id,
-      name: 'Bill Gates',
+      name: 'Bill',
+      surname: 'Gates',
       email: 'gates@gmail.com'
     })
 
-    expect(updatedUser.name).toBe('Bill Gates')
+    expect(updatedUser.name).toBe('Bill')
+    expect(updatedUser.surname).toBe('Gates')
     expect(updatedUser.email).toBe('gates@gmail.com')
   })
 
@@ -39,7 +42,8 @@ describe('UpdateProfile', () => {
     expect(
       updateProfile.execute({
         user_id: 'non-existing-user-id',
-        name: 'Ada Lovelace',
+        name: 'Ada',
+        surname: 'Lovelace',
         email: 'ada@gmail.com'
       })
     ).rejects.toBeInstanceOf(AppError)
@@ -47,13 +51,15 @@ describe('UpdateProfile', () => {
 
   it('should not be able to change user email if new email already exists', async () => {
     await fakeUsersRepository.create({
-      name: 'Ada Lovelace',
+      name: 'Ada',
+      surname: 'Lovelace',
       email: 'ada@gmail.com',
       password: '12345678'
     })
 
     const user = await fakeUsersRepository.create({
-      name: 'Bill Gates',
+      name: 'Bill',
+      surname: 'Gates',
       email: 'gates@gmail.com',
       password: '12345678'
     })
@@ -61,7 +67,8 @@ describe('UpdateProfile', () => {
     await expect(
       updateProfile.execute({
         user_id: user.id,
-        name: 'Bill Gates',
+        name: 'Bill',
+        surname: 'Gates',
         email: 'ada@gmail.com'
       })
     ).rejects.toBeInstanceOf(AppError)
@@ -69,14 +76,16 @@ describe('UpdateProfile', () => {
 
   it('should be able to update the password', async () => {
     const user = await fakeUsersRepository.create({
-      name: 'Ada Lovelace',
+      name: 'Ada',
+      surname: 'Lovelace',
       email: 'ada@gmail.com',
       password: '12345678'
     })
 
     const updatedUser = await updateProfile.execute({
       user_id: user.id,
-      name: 'Bill Gates',
+      name: 'Bill',
+      surname: 'Gates',
       email: 'gates@gmail.com',
       old_password: '12345678',
       password: 'novasenha'
@@ -87,7 +96,8 @@ describe('UpdateProfile', () => {
 
   it('should not be able to update the password without old password', async () => {
     const user = await fakeUsersRepository.create({
-      name: 'Ada Lovelace',
+      name: 'Ada',
+      surname: 'Lovelace',
       email: 'ada@gmail.com',
       password: '12345678'
     })
@@ -95,7 +105,8 @@ describe('UpdateProfile', () => {
     await expect(
       updateProfile.execute({
         user_id: user.id,
-        name: 'Bill Gates',
+        name: 'Bill',
+        surname: 'Gates',
         email: 'gates@gmail.com',
         password: '123123'
       })
@@ -104,7 +115,8 @@ describe('UpdateProfile', () => {
 
   it('should not be able to update the password with wrong old password', async () => {
     const user = await fakeUsersRepository.create({
-      name: 'Ada Lovelace',
+      name: 'Ada',
+      surname: 'Lovelace',
       email: 'ada@gmail.com',
       password: '12345678'
     })
@@ -112,7 +124,8 @@ describe('UpdateProfile', () => {
     await expect(
       updateProfile.execute({
         user_id: user.id,
-        name: 'Bill Gates',
+        name: 'Bill',
+        surname: 'Gates',
         email: 'gates@gmail.com',
         old_password: 'wrong-old-password',
         password: '123123'
