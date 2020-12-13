@@ -25,10 +25,18 @@ export interface User {
   avatar_url: string
 }
 
+export interface Tcc {
+  id: string
+  suggestion: string
+  course: string
+  area: string
+  links: string
+  description: string
+  user: User
+}
+
 const Dashboard: React.FC = () => {
   const { user } = useAuth()
-
-  console.log(user.avatar_url)
 
   const navigation = useNavigation()
 
@@ -56,11 +64,17 @@ const Dashboard: React.FC = () => {
         <Image source={logo} style={{ width: 180, height: 180 }} />
 
         <ContainerButtons>
-          <Button style={{ backgroundColor: '#E5890B' }} onPress={() => {}}>
+          <Button
+            style={{ backgroundColor: '#E5890B' }}
+            onPress={() => navigation.navigate('ListTccs')}
+          >
             <Icon name="edit" color="#032b44" size={25} />
             <ButtonText>Buscar Temas</ButtonText>
           </Button>
-          <Button onPress={() => {}} style={{ marginLeft: 15 }}>
+          <Button
+            onPress={() => navigation.navigate('CreateTcc')}
+            style={{ marginLeft: 15 }}
+          >
             <MaterialIcon name="emoji-objects" color="#032b44" size={25} />
             <ButtonText>Sugerir Tema</ButtonText>
           </Button>
