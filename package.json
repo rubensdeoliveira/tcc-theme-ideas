@@ -14,7 +14,17 @@
       "**/typeorm/**",
       "**/typeorm",
       "**/*react-native*",
-      "**/*react-native*/**"
+      "**/*react-native*/**",
+      "**/@react-navigation/**",
+      "**/@react-navigation",
+      "**/axios/**",
+      "**/axios",
+      "**/@unform/mobile/**",
+      "**/@unform/mobile",
+      "**/yup/**",
+      "**/yup",
+      "**/styled-components/**",
+      "**/styled-components"
     ]
   },
   "license": "MIT",
