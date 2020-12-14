@@ -7,7 +7,7 @@
 ### **CURSO DE BACHARELADO EM SISTEMAS DE INFORMAÇÃO**
 
 **Jaine de Senna Santos**  
-**José Rubens Júnior**
+**José Rubens de Oliveira Júnior**
 **Maria das Graças Dias Amorim** 
 
 
