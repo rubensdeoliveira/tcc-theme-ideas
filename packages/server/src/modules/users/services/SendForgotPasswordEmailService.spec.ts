@@ -30,6 +30,7 @@ describe('SendForgotPasswordEmail', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '123456'
     })
 
@@ -55,6 +56,7 @@ describe('SendForgotPasswordEmail', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '123456'
     })
 

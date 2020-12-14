@@ -12,6 +12,7 @@ interface IRequest {
   name: string
   surname: string
   email: string
+  type: string
   old_password?: string
   password?: string
 }
@@ -31,6 +32,7 @@ class UpdateProfileService {
     name,
     surname,
     email,
+    type,
     old_password,
     password
   }: IRequest): Promise<User> {
@@ -49,6 +51,7 @@ class UpdateProfileService {
     user.name = name
     user.surname = surname
     user.email = email
+    user.type = type
 
     if (password && !old_password) {
       throw new AppError(

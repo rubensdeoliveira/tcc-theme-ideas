@@ -20,6 +20,7 @@ describe('CreateUser', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 
@@ -31,6 +32,7 @@ describe('CreateUser', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 
@@ -39,6 +41,7 @@ describe('CreateUser', () => {
         name: 'Ada',
         surname: 'Lovelace',
         email: 'ada@gmail.com',
+        type: 'Docente',
         password: '12345678'
       })
     ).rejects.toBeInstanceOf(AppError)

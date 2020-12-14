@@ -24,6 +24,7 @@ describe('AuthenticateUser', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 
@@ -50,6 +51,7 @@ describe('AuthenticateUser', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 

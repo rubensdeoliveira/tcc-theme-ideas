@@ -3,10 +3,13 @@ import {
   Column,
   PrimaryGeneratedColumn,
   CreateDateColumn,
-  UpdateDateColumn
+  UpdateDateColumn,
+  ManyToMany,
+  JoinTable
 } from 'typeorm'
 
 import { Exclude, Expose } from 'class-transformer'
+import Tcc from '@modules/tccs/infra/typeorm/entities/Tcc'
 
 @Entity('users')
 class User {
@@ -29,6 +32,9 @@ class User {
   @Column()
   avatar: string
 
+  @Column()
+  type: string
+
   @CreateDateColumn()
   created_at: Date
 
@@ -41,6 +47,14 @@ class User {
       ? `${process.env.APP_API_URL}/files/${this.avatar}`
       : null
   }
+
+  @ManyToMany(() => Tcc)
+  @JoinTable({
+    name: 'users_tccs',
+    joinColumns: [{ name: 'user_id' }],
+    inverseJoinColumns: [{ name: 'tcc_id' }]
+  })
+  favorited_tccs: Tcc[]
 }
 
 export default User

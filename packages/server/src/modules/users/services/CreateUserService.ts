@@ -10,6 +10,7 @@ interface IRequest {
   name: string
   surname: string
   email: string
+  type: string
   password: string
 }
 
@@ -27,6 +28,7 @@ class CreateUserService {
     name,
     surname,
     email,
+    type,
     password
   }: IRequest): Promise<User> {
     const checkUserExists = await this.usersRepository.findByEmail(email)
@@ -41,6 +43,7 @@ class CreateUserService {
       name,
       surname,
       email,
+      type,
       password: hashedPassword
     })
 

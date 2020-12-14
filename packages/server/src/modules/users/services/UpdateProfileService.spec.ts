@@ -23,6 +23,7 @@ describe('UpdateProfile', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 
@@ -30,12 +31,14 @@ describe('UpdateProfile', () => {
       user_id: user.id,
       name: 'Bill',
       surname: 'Gates',
-      email: 'gates@gmail.com'
+      email: 'gates@gmail.com',
+      type: 'Discente'
     })
 
     expect(updatedUser.name).toBe('Bill')
     expect(updatedUser.surname).toBe('Gates')
     expect(updatedUser.email).toBe('gates@gmail.com')
+    expect(updatedUser.type).toBe('Discente')
   })
 
   it('should not be able to update profile from non-existing user', async () => {
@@ -44,7 +47,8 @@ describe('UpdateProfile', () => {
         user_id: 'non-existing-user-id',
         name: 'Ada',
         surname: 'Lovelace',
-        email: 'ada@gmail.com'
+        email: 'ada@gmail.com',
+        type: 'Docente'
       })
     ).rejects.toBeInstanceOf(AppError)
   })
@@ -54,6 +58,7 @@ describe('UpdateProfile', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 
@@ -61,6 +66,7 @@ describe('UpdateProfile', () => {
       name: 'Bill',
       surname: 'Gates',
       email: 'gates@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 
@@ -69,7 +75,8 @@ describe('UpdateProfile', () => {
         user_id: user.id,
         name: 'Bill',
         surname: 'Gates',
-        email: 'ada@gmail.com'
+        email: 'ada@gmail.com',
+        type: 'Docente'
       })
     ).rejects.toBeInstanceOf(AppError)
   })
@@ -79,6 +86,7 @@ describe('UpdateProfile', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 
@@ -88,6 +96,7 @@ describe('UpdateProfile', () => {
       surname: 'Gates',
       email: 'gates@gmail.com',
       old_password: '12345678',
+      type: 'Docente',
       password: 'novasenha'
     })
 
@@ -99,6 +108,7 @@ describe('UpdateProfile', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 
@@ -108,6 +118,7 @@ describe('UpdateProfile', () => {
         name: 'Bill',
         surname: 'Gates',
         email: 'gates@gmail.com',
+        type: 'Docente',
         password: '123123'
       })
     ).rejects.toBeInstanceOf(AppError)
@@ -118,6 +129,7 @@ describe('UpdateProfile', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '12345678'
     })
 
@@ -127,6 +139,7 @@ describe('UpdateProfile', () => {
         name: 'Bill',
         surname: 'Gates',
         email: 'gates@gmail.com',
+        type: 'Docente',
         old_password: 'wrong-old-password',
         password: '123123'
       })

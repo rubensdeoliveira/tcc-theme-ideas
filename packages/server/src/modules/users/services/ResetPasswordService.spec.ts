@@ -29,6 +29,7 @@ describe('ResetPasswordService', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '123456'
     })
 
@@ -74,6 +75,7 @@ describe('ResetPasswordService', () => {
       name: 'Ada',
       surname: 'Lovelace',
       email: 'ada@gmail.com',
+      type: 'Docente',
       password: '123456'
     })
 
