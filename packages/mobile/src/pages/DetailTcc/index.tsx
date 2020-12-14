@@ -116,12 +116,8 @@ const DetailTcc: React.FC = () => {
   }, [tcc.id, hasFavorited])
 
   const handleEmail = useCallback(() => {
-    console.log(tcc.creator)
-
     const to = [tcc.creator.email]
     email(to, {
-      // cc: ['bazzy@moo.com', 'doooo@daaa.com'],
-      // bcc: 'mee@mee.com',
       subject: `Interesse de ${user.name} no tema sugerido ${tcc.suggestion}`,
       body: 'Digite aqui sua dúvida'
     }).catch(console.error)

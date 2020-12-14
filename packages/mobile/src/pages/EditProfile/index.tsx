@@ -115,12 +115,14 @@ const EditProfile: React.FC = () => {
           const errors = getValidationErrors(err)
 
           formRef.current?.setErrors(errors)
+
           return
         }
 
         Alert.alert(
-          'Erro na atualização do perfil',
-          'Ocorreu um error ao atualizar seu perfil, tente novamente.'
+          'Erro na atualiação do perfil',
+          err.response.data.message ||
+            'Ocorreu um erro ao atualizar o perfil, tente novamente.'
         )
       }
     },

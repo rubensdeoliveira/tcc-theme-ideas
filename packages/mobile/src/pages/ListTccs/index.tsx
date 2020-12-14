@@ -88,6 +88,15 @@ const ListTccs: React.FC = () => {
             label="Ciências da Computação"
             value="Ciências da Computação"
           />
+          <StyledPicker.Item
+            label="Ciências e Tecnologias"
+            value="Ciências e Tecnologias"
+          />
+          <StyledPicker.Item label="Design" value="Design" />
+          <StyledPicker.Item
+            label="Engenharia de Computação"
+            value="Engenharia de Computação"
+          />
         </StyledPicker>
 
         {showMoreFilters && (
@@ -118,8 +127,20 @@ const ListTccs: React.FC = () => {
               />
               <StyledPicker.Item label="Big Data" value="Big Data" />
               <StyledPicker.Item
-                label="Engenharia de Software"
-                value="Engenharia de Software"
+                label="Internet das coisas"
+                value="Internet das coisas"
+              />
+              <StyledPicker.Item
+                label="Desenvolvimento de Software"
+                value="Desenvolvimento de Software"
+              />
+              <StyledPicker.Item
+                label="Inteligencia Artificial"
+                value="Inteligencia Artificial"
+              />
+              <StyledPicker.Item
+                label="Banco de Dados"
+                value="Banco de Dados"
               />
             </StyledPicker>
           </>
@@ -158,12 +179,12 @@ const ListTccs: React.FC = () => {
                   <TccName>{tcc.suggestion}</TccName>
 
                   <TccMeta>
-                    <Icon name="clock" size={14} color="#96cff1" />
+                    <Icon name="book" size={14} color="#96cff1" />
                     <TccMetaText>{tcc.course}</TccMetaText>
                   </TccMeta>
 
                   <TccMeta>
-                    <Icon name="clock" size={14} color="#96cff1" />
+                    <Icon name="archive" size={14} color="#96cff1" />
                     <TccMetaText>{tcc.area}</TccMetaText>
                   </TccMeta>
                 </TccInfo>

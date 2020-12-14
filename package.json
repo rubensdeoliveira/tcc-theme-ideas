@@ -24,7 +24,9 @@
       "**/yup/**",
       "**/yup",
       "**/styled-components/**",
-      "**/styled-components"
+      "**/styled-components",
+      "**/babel-jest/**",
+      "**/babel-jest"
     ]
   },
   "license": "MIT",

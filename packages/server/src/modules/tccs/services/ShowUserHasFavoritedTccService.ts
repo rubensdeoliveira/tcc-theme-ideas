@@ -3,8 +3,8 @@ import { injectable, inject } from 'tsyringe'
 import ITccsRepository from '../repositories/ITccsRepository'
 
 interface IRequest {
-  tcc_id: string
   user_id: string
+  tcc_id: string
 }
 
 @injectable()

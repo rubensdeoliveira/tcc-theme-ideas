@@ -66,11 +66,14 @@ const SignIn: React.FC = () => {
           const errors = getValidationErrors(err)
 
           formRef.current?.setErrors(errors)
+
+          return
         }
 
         Alert.alert(
-          'Erro na autenticação',
-          'Ocorreu um erro ao fazer login, cheque as credenciais'
+          'Erro durante autenticação',
+          err.response.data.message ||
+            'Ocorreu um erro durante a autenticação, tente novamente.'
         )
       }
     },

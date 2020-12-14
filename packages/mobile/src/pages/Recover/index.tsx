@@ -30,41 +30,47 @@ const Recover: React.FC = () => {
   const formRef = useRef<FormHandles>(null)
   const navigation = useNavigation()
 
-  const handleRecover = useCallback(async (data: RecoverFormData) => {
-    try {
-      formRef.current?.setErrors({})
+  const handleRecover = useCallback(
+    async (data: RecoverFormData) => {
+      try {
+        formRef.current?.setErrors({})
 
-      const schema = Yup.object().shape({
-        email: Yup.string()
-          .required('E-mail obrigatório')
-          .email('E-mail inválido')
-      })
+        const schema = Yup.object().shape({
+          email: Yup.string()
+            .required('E-mail obrigatório')
+            .email('E-mail inválido')
+        })
 
-      await schema.validate(data, {
-        abortEarly: false
-      })
+        await schema.validate(data, {
+          abortEarly: false
+        })
 
-      api.post('/password/forgot', data)
+        await api.post('/password/forgot', data)
 
-      Alert.alert(
-        'Sucesso',
-        'Um e-mail de recuperação de senha foi enviado para o seu e-mail'
-      )
+        Alert.alert(
+          'Sucesso',
+          'Um e-mail de recuperação de senha foi enviado para o seu e-mail'
+        )
 
-      navigation.goBack()
-    } catch (err) {
-      if (err instanceof Yup.ValidationError) {
-        const errors = getValidationErrors(err)
+        navigation.goBack()
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err)
 
-        formRef.current?.setErrors(errors)
+          formRef.current?.setErrors(errors)
+
+          return
+        }
+
+        Alert.alert(
+          'Erro ao enviar e-mail de recuperação',
+          err.response.data.message ||
+            'Ocorreu um erro ao enviar o e-mail de alteração de senha, tente novamente.'
+        )
       }
-
-      Alert.alert(
-        'Erro na autenticação',
-        'Ocorreu um erro ao fazer login, cheque as credenciais'
-      )
-    }
-  }, [])
+    },
+    [navigation]
+  )
 
   return (
     <>

@@ -50,10 +50,13 @@ const CreateTcc: React.FC = () => {
         const schema = Yup.object().shape({
           description: Yup.string().min(
             10,
-            'Nome deve ter no mínimo 3 dígitos'
+            'Descrição deve ter no mínimo 10 dígitos'
           ),
-          links: Yup.string().min(10, 'Nome deve ter no mínimo 3 dígitos'),
-          suggestion: Yup.string().min(8, 'Nome deve ter no mínimo 3 dígitos')
+          links: Yup.string().min(10, 'Link deve ter no mínimo 10 dígitos'),
+          suggestion: Yup.string().min(
+            8,
+            'Sugestão deve ter no mínimo 8 dígitos'
+          )
         })
 
         await schema.validate(data, {
@@ -84,7 +87,11 @@ const CreateTcc: React.FC = () => {
           return
         }
 
-        Alert.alert('Erro no cadastro', err.message)
+        Alert.alert(
+          'Erro no cadastro',
+          err.response.data.message ||
+            'Ocorreu um erro ao cadastrar o TCC, tente novamente.'
+        )
       }
     },
     [navigation, area, course]
@@ -136,6 +143,15 @@ const CreateTcc: React.FC = () => {
                   label="Ciências da Computação"
                   value="Ciências da Computação"
                 />
+                <StyledPicker.Item
+                  label="Ciências e Tecnologias"
+                  value="Ciências e Tecnologias"
+                />
+                <StyledPicker.Item label="Design" value="Design" />
+                <StyledPicker.Item
+                  label="Engenharia de Computação"
+                  value="Engenharia de Computação"
+                />
               </StyledPicker>
 
               <StyledPicker
@@ -150,8 +166,20 @@ const CreateTcc: React.FC = () => {
                 />
                 <StyledPicker.Item label="Big Data" value="Big Data" />
                 <StyledPicker.Item
-                  label="Engenharia de Software"
-                  value="Engenharia de Software"
+                  label="Internet das coisas"
+                  value="Internet das coisas"
+                />
+                <StyledPicker.Item
+                  label="Desenvolvimento de Software"
+                  value="Desenvolvimento de Software"
+                />
+                <StyledPicker.Item
+                  label="Inteligencia Artificial"
+                  value="Inteligencia Artificial"
+                />
+                <StyledPicker.Item
+                  label="Banco de Dados"
+                  value="Banco de Dados"
                 />
               </StyledPicker>
 

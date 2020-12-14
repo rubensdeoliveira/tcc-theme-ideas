@@ -128,7 +128,11 @@ const EditTcc: React.FC = () => {
           return
         }
 
-        Alert.alert('Erro no cadastro', err.response.data.message)
+        Alert.alert(
+          'Erro ao alterar TCC',
+          err.response.data.message ||
+            'Ocorreu um erro ao alterar o TCC, tente novamente.'
+        )
       }
     },
     [navigation, area, course, tcc_id, tcc]
@@ -181,6 +185,15 @@ const EditTcc: React.FC = () => {
                   label="Ciências da Computação"
                   value="Ciências da Computação"
                 />
+                <StyledPicker.Item
+                  label="Ciências e Tecnologias"
+                  value="Ciências e Tecnologias"
+                />
+                <StyledPicker.Item label="Design" value="Design" />
+                <StyledPicker.Item
+                  label="Engenharia de Computação"
+                  value="Engenharia de Computação"
+                />
               </StyledPicker>
 
               <StyledPicker
@@ -195,8 +208,20 @@ const EditTcc: React.FC = () => {
                 />
                 <StyledPicker.Item label="Big Data" value="Big Data" />
                 <StyledPicker.Item
-                  label="Engenharia de Software"
-                  value="Engenharia de Software"
+                  label="Internet das coisas"
+                  value="Internet das coisas"
+                />
+                <StyledPicker.Item
+                  label="Desenvolvimento de Software"
+                  value="Desenvolvimento de Software"
+                />
+                <StyledPicker.Item
+                  label="Inteligencia Artificial"
+                  value="Inteligencia Artificial"
+                />
+                <StyledPicker.Item
+                  label="Banco de Dados"
+                  value="Banco de Dados"
                 />
               </StyledPicker>
 

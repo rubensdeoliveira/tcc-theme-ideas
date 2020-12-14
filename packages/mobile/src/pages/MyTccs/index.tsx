@@ -88,12 +88,12 @@ const MyTccs: React.FC = () => {
                     <TccName>{tcc.suggestion}</TccName>
 
                     <TccMeta>
-                      <Icon name="clock" size={14} color="#96cff1" />
+                      <Icon name="book" size={14} color="#96cff1" />
                       <TccMetaText>{tcc.course}</TccMetaText>
                     </TccMeta>
 
                     <TccMeta>
-                      <Icon name="clock" size={14} color="#96cff1" />
+                      <Icon name="archive" size={14} color="#96cff1" />
                       <TccMetaText>{tcc.area}</TccMetaText>
                     </TccMeta>
                   </TccInfo>

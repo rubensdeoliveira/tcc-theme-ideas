@@ -50,7 +50,10 @@ const SignUp: React.FC = () => {
 
         const schema = Yup.object().shape({
           name: Yup.string().min(3, 'Nome deve ter no mínimo 3 dígitos'),
-          surname: Yup.string().min(3, 'Nome deve ter no mínimo 3 dígitos'),
+          surname: Yup.string().min(
+            3,
+            'Sobrenome deve ter no mínimo 3 dígitos'
+          ),
           email: Yup.string()
             .required('E-mail obrigatório')
             .email('E-mail inválido'),
@@ -87,7 +90,6 @@ const SignUp: React.FC = () => {
 
         navigation.goBack()
       } catch (err) {
-        console.log(err)
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err)
 
@@ -96,7 +98,11 @@ const SignUp: React.FC = () => {
           return
         }
 
-        Alert.alert('Erro no cadastro', err.message)
+        Alert.alert(
+          'Erro no cadastro',
+          err.response.data.message ||
+            'Ocorreu um erro durante o cadastro, tente novamente.'
+        )
       }
     },
     [navigation, type]
