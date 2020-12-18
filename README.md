@@ -29,15 +29,15 @@ O TCC Theme Ideas é uma plataforma que  tem como objetivo ajudar alunos de grad
     # Run server
     yarn dev:server
   ```
-  > Running web project
+  > Running mobile project
   ```bash
-    # Accessing web
+    # Accessing mobile
     cd packages/mobile
 
     # Running emulador
     yarn android
 
-    # Running web
+    # Running mobile
     yarn start
   ```
   
